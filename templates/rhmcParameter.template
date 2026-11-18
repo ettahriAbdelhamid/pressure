@@ -1,0 +1,58 @@
+#
+# rhmc.param
+#
+# Parameter file for RHMC runs with HISQ.
+#
+#      Lattice: Nx Ny Nz Nt
+#         beta: Bare coupling constant 6/g^2
+#        Nodes: Number of nodes per direction
+#      mass_ud: Light quark mass
+#       mass_s: Strange quark mass
+#        no_pf: Number of pseudo-fermion fields
+#
+#    step_size: step size of trajectory
+#        no_md: number of steps of trajectory
+#   no_step_sf: number of steps of strange quark integration
+#        no_sw: number of steps of gauge integration
+#        cgMax: max cg steps for multi mass solver
+#   always_acc: always accept configuration in Metropolis
+#     rat_file: rational approximation input file
+#
+#    rand_flag: new random numbers(0)/read in random numbers(1)
+#    rand_file: file name for random numbers and infos
+#         seed: myseed
+#    load_conf: flag_load (0=identity, 1=random, 2=getconf)
+#   gauge_file: prefix for the gauge configuration's file name
+#      conf_nr: configuration number
+#   no_updates: number of updates
+#  write_every: write out configuration every
+#
+Lattice = latticeSpace latticeSpace latticeSpace latticeTemp
+Nodes   = nodeXVal nodeYVal nodeZVal nodeTVal
+mass_ud = massLight
+mass_s  =  precMass
+beta    =  betaVal
+#betaPlaq    =  betaPlaqVal
+#betaRect    =  betaRectVal
+no_pf   = 1
+
+step_size  = stepSizeVal
+no_md      = numStepsOfTrajectory
+no_step_sf = numStepsStrangeInt
+no_sw      = numStepsGaugeInt
+cgMax      = maxCGSteps
+always_acc = 0
+rat_file   = ./parameter/ratApprox/ml_massLight_ms_massStrange_degFA_degFAval_degMD_degMDval.rat
+noSkipMetro = noSkipMetroVal
+
+rand_flag   = randFileBool
+start_rand_file = startRandFile
+rand_file   = randFile
+seed        = seedVal
+load_conf   = loadConfBool
+start_gauge_file = startGaugeFile
+gauge_file  = gaugeFieldFile
+conf_nr     = confNum
+no_updates  = numUpdates
+write_every = writeEvery
+Gaugefile_out = ./configs/

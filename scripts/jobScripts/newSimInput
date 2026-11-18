@@ -1,0 +1,27 @@
+latS=8
+latT=4
+massL=0.1
+massS=0.1
+beta=5
+nodeX=1
+nodeY=1
+nodeZ=1
+nodeT=1
+stepSize=0.01
+numStepTraj=100
+numStepStrangeInt=1
+numStepGaugeInt=100
+maxCG=20000
+newRand=0 #new=0 and read=1
+startRandPath=/home/aettahri/simQcd/data/rand/l408f3b7.373ml0.5ms0.5_
+randPath=/home/aettahri/simQcd/data/rand/l408f3b7.373ml0.5ms0.5_
+seed=0
+loadConf=0 #(0=identity, 1=random, 2=getconf)
+startGaugePath=/home/aettahri/simQcd/data/rand/l408f3b7.373ml0.5ms0.5_
+gaugePath=/home/aettahri/simQcd/data/configs/l408f3b7.373ml0.5ms0.5_
+confNum=0
+numUpdate=400
+writeEvery=500
+simFolderName=simThermalization
+noSkipMetro=0
+

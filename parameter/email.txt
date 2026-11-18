@@ -1,0 +1,18 @@
+Hi Abdelhamid,
+
+I have mentioned the details below. Feel free to contact me if you need any further information or assistance.
+
+1) Gauge part - Symmanzik improved gauge action, Fermionic part - Highly improved staggered quarks (HISQ)
+You can take a quick look on the Dennis Wollweg theis, Chapter - 2; https://pub.uni-bielefeld.de/record/2959588
+
+1, 2, 3) We have three beta values and corresponding masses (m_l = m_s/20) and n_\tau values 
+a) \beta = 7.373; m_l, ms = 0.00125,0.0250; n_\tau = 8, T = 409.7 MeV
+b) \beta = 7.596; m_l, ms = 0.00101, 0.0202; n_\tau = 10, T = 400.0 MeV
+c) \beta = 7.825; m_l, ms = 0.00082, 0.0164; n_\tau = 12, T = 407.4 MeV
+
+You can take a look on arXiv:1407.6387, we are using the same \beta values and masses etc.
+
+PS: Thank you!
+
+Regards,
+Pavan
