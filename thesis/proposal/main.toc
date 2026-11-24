@@ -1,0 +1,29 @@
+\contentsline {chapter}{\numberline {1}Motivation}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Quantum Chromodynamics}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}The Dirac Equation}{8}{section.2.1}%
+\contentsline {section}{\numberline {2.2}SU(3) Gauge Symmetry}{9}{section.2.2}%
+\contentsline {section}{\numberline {2.3}The Pure Gauge Action}{12}{section.2.3}%
+\contentsline {section}{\numberline {2.4}The Path Integral and Partition function of QCD}{14}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Grassmann Numbers and the Fermion Determinant}{15}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Renormalization and the Running of the Coupling}{16}{section.2.5}%
+\contentsline {chapter}{\numberline {3}The Lattice}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction of the Lattice}{18}{section.3.1}%
+\contentsline {section}{\numberline {3.2}The Gluonic Part of the Action}{19}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Link Variables and the Wilson Gauge Action}{19}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Symanzik Improvement: Lüscher-Weisz Gauge Action}{22}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}The Fermionic Part of the Action}{22}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Wilson Fermion Action}{22}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Wilson Fermion Action}{24}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Chiral symmetry and the Nielsen-Ninomiya theorem}{24}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}(Highly Improved) Staggered Quark action}{25}{subsection.3.3.4}%
+\contentsline {chapter}{\numberline {4}Statistical Physics and Thermodynamics}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The Partition Function and Bulk Quantities}{27}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Integral Method}{28}{section.4.2}%
+\contentsline {chapter}{\numberline {5}The Measuring Process}{30}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Markov chains and the Metropolis algorithm}{30}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Simulation in Pure Glue: Heat Bath and Overrelaxation}{33}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Simulation in Full QCD: Hybrid Monte Carlo}{35}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Fermion determinant and pseudofermions}{35}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Hybrid Monte Carlo}{36}{subsection.5.3.2}%
+\contentsline {chapter}{\numberline {6}Set Up and Outlook}{37}{chapter.6}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

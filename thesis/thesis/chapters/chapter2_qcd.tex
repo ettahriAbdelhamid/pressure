@@ -1,0 +1,302 @@
+
+
+%\section{Introduction to QCD}
+%In the Standard Model of Particle Physics there are four fundamental interactions, namely electromagnetism, the strong and weak interaction and finally gravitation. Ignoring gravitation, the other three forces can each be explained as a Quantum Field Theory (QFT)\cite{thomson}.\\ 
+%While it is clear that the description of the interactions necessitates a quantum mechanical treatment, the need of the field viewpoint might be less obvious. One of the reasons for this, as mentioned in \cite{peskin}, is the fact that the processes of our interest are happening at relativistic energies, where we see the creation and annihilation of particles-antiparticle pairs, which cannot be easily explained when thinking of single particles.\\
+%\todo[inline]{add: instead of starting with field operators we start with classical action and then put in path integral} 
+\todo[inline]{Introduce the Standard Model including the fundamental particles and interactions}
+\todo[inline]{State that QFT is necessary for a description of QCD since its a relativistic quantum theory and so on}
+
+The Standard Model of Particle Physics states that all matter is made up of quarks and leptons (and the corresponding antiparticles) and that all interactions in nature are a result of the exchange of the force carriers. All matter constituents carry the weak charge and thus are influenced by the weak interaction, which is carried by the W and Z bosons. With the exception of the neutrinos, they all have a nonzero electric charge and thus feel the electro-magnetic force carried by the photon. However, only the quarks carry the color charge and thus are under the influence of the strong interaction, which is carried by the gluons.
+While all forces have to be considered for a full description of a theory, on the scales that we are interested in, the strong force is dominant and thus will be the only force which we will discuss here.\\
+It is not surprising that at these sizes a quantum mechanical description is necessary. But this is actually not enough, since a relativistic analysis is also required. But even choosing a relativistic equation of motion instead of the Schrödinger equation will result in the problem, that some effects, like particle-antiparticle creation and annihilation, cannot be directly described, although they are very important for relativistic theories.\\
+The way out is to describe the fundamental forces via Quantum Field Theories. In the case of the strong interaction the theory is called \textit{Quantum Chromodynamics}.\cite{thomson}\\
+In this thesis we will use natural units, meaning we set
+\begin{equation}
+    c=\hbar=1=k_B,
+\end{equation}
+where $k_B$ stands for the Boltzmann constant. Furthermore, Einsteins summation rule is always implied if not stated otherwise and the (-,+,+,+) metric is used for the Minkwoski space.
+
+
+
+\section{The Dirac Equation}
+\todoin{Start with the free Dirac Lagrangian since we are dealing with fermions, introducing 4-Spinor, gamma matrices and so on}
+
+
+In this section we will not include the strong interaction but look instead at the free Dirac Equation which will describe free spin-1/2 fermions, which will be derived following the approach of \cite{thomson}. \\
+As mentioned above, the Schrödinger equation fails to be relativistic invariant. Recalling that the free Schrödinger equation can be motivated by starting with the non-relativistic energy-momentum relation
+\begin{equation}
+    E=\frac{p^2}{2m}
+\end{equation}
+and then promoting energy and momentum to operators (in position space representation), e.g. 
+\begin{equation}
+    E \rightarrow i\partial_t,\qquad p_k \rightarrow -i\partial_k,
+\end{equation}
+it is not surprising that this equation cannot be used for a relativistic description. Trying to derive a relativistic theory with the same philosophy in mind, e.g. by starting with
+\begin{equation}
+    E^2=p^2+m^2,\label{eq:relEMRel}
+\end{equation}
+will result in the Klein-Gordon equation. While this equation is Lorentz invariant, it raises some other problems which make this theory not suitable to describe fermions.\\
+As an alternative Paul Dirac proposed an equation that is first order in space and time
+\begin{equation}
+    \hat E\psi = \left(\vec \alpha \cdot \hat{\vec p}+\beta m\right)\psi.
+\end{equation}
+By enforcing that solutions $\psi$ of the equation should also describe the relativistic energy-momentum relation \eqref{eq:relEMRel} and that the operator $\hat E$ should be hermitian, it follows that $\alpha_i$ and $\beta$ are 4 mutually anticommuting traceless hermitian matrices of even dimensions greater than or equal to four. This implies that the wavefunction $\psi$ is a four dimensional Dirac spinor
+\begin{equation}
+    \psi =(\psi_1, \psi_2, \psi_3, \psi_4)^T.
+\end{equation}
+It can be shown, that such a wavefunction describes fermions that have spin 1/2.\\ 
+Following custom we introduce the gamma matrices which are defined by
+\begin{equation}
+    \gamma^0\equiv \beta,\quad \gamma^1=\beta\alpha_x, \quad\gamma^2=\beta\alpha_y, \quad\gamma^3=\beta\alpha_z,
+\end{equation}
+which are defined unique only up to an unitary transformation. For specific calculations it might be useful to choose a specific representation, but usually it is enough to use their defining properties which can be summarized in the Clifford Algebra\footnote{The Clifford Algebra is also satisfied by non-hermitian gamma matrices.}
+\begin{equation}
+    \lbrace \gamma^\mu,\gamma^\nu\rbrace=2\eta^{\mu\nu}\mathbb{1}.
+\end{equation}
+While these objects are matrices, $\gamma^\mu$ transforms like a four vector, thus making
+\begin{equation}
+    p_\mu\gamma^\mu =:\slashed p
+\end{equation}
+a Lorentz scalar. The right-hand side of the equation above is the Feyman slash notation, which is used, when a four vector is contracted with the gamma matrices.
+Using the 4-momentum operator $\hat P_\mu=(\hat E, -\hat {\vec p})=i(\partial_0, \partial_k)=i\partial_\mu$, we can finally bring the Dirac equation into the form
+\begin{equation}
+    (i\slashed \partial-m)\psi = 0 = (\slashed p -m)\psi,
+\end{equation}
+which is obviously Lorentz invariant.\\
+The Dirac equation is just the equation of motion, but we actually need the corresponding Lagrangian. For this we first introduce the Adjoint Dirac Spinor 
+\begin{equation}
+    \bar\psi=\psi^\dagger \gamma^0,
+\end{equation}
+which is the second degree of freedom of our theory. The Lagrangian can now be reverse-engineered to be
+\begin{equation}
+    \lagr(\psi, \bar \psi) = \bar\psi(i\slashed \partial-m)\psi.\label{eq:freeDirac}
+\end{equation}
+This is the Lagrangian of the free Dirac field for a single spin 1/2-fermion, e.g. a quark. When we look at $N_f$ flavors of quarks, we introduce for each flavor a wave function, with a (potentially) different corresponding mass and write
+\begin{equation}
+    \lagr = \sum_{f=1}^{N_f}\bar\psi^{(f)}(i\slashed \partial-m)\psi^{(f)}.
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+\section{SU(3) Gauge Symmetry}
+The Lagrangian in equation \eqref{eq:freeDirac} is the Lagrangian for free fermions. Since we are interested in their interaction under the influence of the strong interaction, we need to couple the fermions to the interaction. In QED this follows naturally by assuming that the theory has a local $U(1)$ gauge symmetry. This means, that the Lagrangian is invariant when the fermion fields are transformed via
+\begin{equation}
+    \psi(x)\rightarrow \exp(i\alpha(x))\psi(x),
+\end{equation}
+for some complex scalar function $\alpha(x)$. This can be interpreted as a one dimensional complex rotation.\\
+In QCD we assume a local $SU(3)$ gauge symmetry, under which the fermion fields are now rotated in a 3-dimensional vector space, the color space. This means that the fermion fields are now elements of the 3-dimensional color space. All degrees of freedom are now
+\begin{equation}
+    \psi^{(f)}(x)_{\alpha c}.
+\end{equation}
+We first differentiate with the $(f)$ superscript between the 6 quark flavors: up, down, strange, charm, top and bottom. Then we have the 4-dimensional space-time coordinate $x$. $\alpha$ denotes the component of the 4-dimensional spinor space and runs from 1 to 4 and $c$ denotes the component of the 3-dimensional color space and runs from 1 to 3. Thus, a quark with a specific flavor has 12 degrees of freedom at each space-time coordinate.\\
+Returning to the issue of the gauge invariance, it should not come as a surprise that the Dirac Lagrangian is not invariant under local $SU(3)$ gauge symmetries, since it is not even invariant under $U(1)$ gauge symmetry. The fields transform via
+\begin{equation}
+    \psi(x)\rightarrow\Omega(x)\psi(x),\qquad \bar\psi(x)\rightarrow\bar\psi(x)\Omega(x)^\dagger=\bar\psi(x)\Omega(x)^{-1},
+\end{equation}
+with independent gauge transformations $\Omega(x)\in SU(3)$ at each coordinate $x$. Since these matrices are in $SU(3)$ their determinant is 1 and they are unitary, which means that they satisfy $\Omega(x)^\dagger=\Omega(x)^{-1}$. This implies that the mass term of the Dirac equation satisfies the gauge symmetry
+\begin{equation}
+    m\bar\psi(x)\psi(x)\rightarrow m\bar\psi(x)\Omega(x)^{-1}\Omega(x)\psi(x)=m\bar\psi(x)\psi(x).
+\end{equation}
+However, the derivative term is not invariant
+\begin{align}
+    \bar\psi(x)\partial_\mu\psi(x)&\rightarrow\bar\psi(x)\Omega(x)^{-1}\Omega(x)\partial_\mu\psi(x)+\bar\psi(x)\Omega(x)^{-1}\left(\partial_\mu\Omega(x)\right)\psi(x) \\
+    &~=\bar\psi(x)\partial_\mu\psi(x)+\bar\psi\Omega(x)^{-1}\left(\partial_\mu\Omega(x)\right)\psi(x).
+\end{align}
+The reason for this failure lies in the fact that the derivative compares the field at two different coordinates without taking into account that both fields are independently rotated in the color space. To solve this problem we introduce a matrix $U(x,y)\in SU(3)$ defined by the transformation rule
+\begin{equation}
+    U(x,y)\psi(y)\rightarrow\Omega(x) U(x,y)\psi(y)   
+\end{equation}
+which means that it transforms according to
+\begin{equation}
+    U(x,y)\rightarrow \Omega(x)U(x,y)\Omega(y)^\dagger.
+\end{equation}
+This means that we take the field at position $y$ and transform it so that it matches the gauge rotation at position $x$. In $U(1)$, e.g. in the QED case, we would say that this comparator compensates the phase difference between coordinates $x$ and $y$. \\
+$SU(3)$ is a Lie Group and thus its infinitesimal group elements can be written as
+\begin{equation}
+    U(x+\epsilon n,x)=\mathbb{1}-ig\epsilon n^\mu A_\mu^a t^a+\mathcal{O}(\epsilon^2),\label{eq:comparator1storder}
+\end{equation}
+where $t^a$ are the 8 generators of $SU(3)$, $g$ is the gauge coupling and $A_\mu^a$ are defined to be the gluon fields.\\
+We can now define the covariant derivative that will substitute the usual derivative to recover gauge invariance. The  differential quotient will be changed to
+\begin{equation}
+    n^\mu D_\mu (x)= \underset{\epsilon\to0}{\lim} \frac{\psi(x+\epsilon n)-U(x+\epsilon n,x)\psi(x)}{\epsilon}.
+\end{equation}
+By the definition of the comparator $U$ the finite difference quotient transforms by pre-multiplying it with a matrix $\Omega(x+\epsilon n)$, which is reduced to $\Omega(x)$, because of the limit. Thus, we have
+\begin{equation}
+    \gamma^\mu \bar\psi(x) D_\mu\psi(x)\rightarrow\gamma^\mu \bar\psi(x)\Omega(x)^{-1} \Omega(x)D_\mu\psi(x)=\gamma^\mu \bar\psi(x) D_\mu\psi(x),
+\end{equation}
+which means that this new derivative gives rise to a gauge invariant term.
+Plugging in equation \eqref{eq:comparator1storder} in the definition of the covariant derivative leads to 
+\begin{equation}
+    D_\mu = \partial_\mu+igA_\mu^at^a.
+\end{equation}
+The $SU(3)$ gauge invariant Lagrangian takes on the form 
+\begin{equation}
+    \lagr(\psi, \bar\psi, A)=\bar\psi (i\slashed D-m)\psi=\bar\psi (i\slashed \partial -g\slashed A^a t^a-m)\psi,
+\end{equation}
+which not only depends on the fermion fields $\psi$ and $\bar \psi$ but also on the gluon fields $A_\mu^at^a$. This derivation was done analogously to \cite{peskin} with the exception of choosing the opposite sign in equation \eqref{eq:comparator1storder} which results in the covariant derivative having the opposite relative sign. This was necessary to match the notation used in \cite{gattringer}. 
+
+
+
+\todoin{Theory has to be invariant under SU(3). Short reminder of U(1) symmetry of QED. Introduce gauge fields and how they have to transform} 
+
+
+
+
+
+
+
+
+\section{The Pure Gauge Action}
+
+To describe a QFT completely the Lagrangian should include all terms that satisfy necessary invariances such as gauge and Lorentz invariance (while preserving renormalizability). It is clear that we have not yet written all necessary terms considering that we have not written down any kinetic/derivative terms for the gluon fields. This means that the equations of motion for the gluons fields are trivial. In QED the term needed is the square of the field strength tensor $F_{\mu\nu}$.\\
+Such a term can be motivated by constructing gauge invariant terms using higher order covariant derivatives. Since $D_\mu\psi(x)$ transforms in the same way as the object on which the covariant derivative acts on, this immediately implies that $D_\mu D_\nu\psi(x)$ transforms in the same well as well and thus $\bar\psi\left[D_\mu, D_\nu\right]\psi$ is gauge invariant. The commutator can be rewritten in the form
+\begin{align}
+    \sqbr{D_\mu,D_\nu}&=\sqbr{\partial_\mu+igA_\mu^at^a, \partial_\nu+igA_\nu^bt^b}\\
+    &=\sqbr{\partial_\mu, \partial_\nu}-ig\left(\sqbr{\partial_\mu, A_\nu^b}t^b+\sqbr{A_\mu^a, \partial_\nu}t^a\right)-g^2A_\mu^aA_\nu^b\sqbr{t^a, t^b}\\
+    &=-gt^at\rbr{\partial_\mu A_\nu^a-\partial_\nu A_\mu^a}-g^2A_\mu^aA_\nu^b\sqbr{t^a,t^b}\\
+    &=-igt^a\rbr{\partial_\mu A_\nu^a-\partial_\nu A_\mu^a+gA_\mu^b A_\nu^cf^{abc}}\\
+    &\equiv-igt^aG_{\mu\nu}^a,
+\end{align}
+where we have used the commutator relation of the Lie Algebra of SU(3)
+\begin{equation}
+    \sqbr{t^b,t^c}=if^{abc}t^a
+\end{equation}
+with the structure constant $f^{abc}$.\\
+The field strength tensor $G_{\mu\nu}^a$ is similar to the field strength tensor of QED $F_{\mu\nu}$ with the extra term resulting from the non-abelian nature of QCD. Just like in QED the commutator of the covariant derivative does not contain any derivatives and would only act as a multiplicative factor on the quark field. Thus, the (gauge-invariant) commutator can be included in Lagrangian without having to sandwich it between the quark fields.\\
+In QED we would take the square of the field strength tensor, meaning contracting the covariant and the contravariant field strength tensor, to get a Lorentz invariant term. But in QCD the field strength tensor is not gauge invariant. One way of enforcing the gauge invariance is by “contracting” the superfix $a$ and write
+\begin{equation}
+    \rbr{G_{\mu\nu}^a}^2=\sum_{\mu,\nu=1}^4\sum_{a=1}^8G_{\mu\nu}^a.
+\end{equation}
+A difference from QED is that the non vanishing commutator gives rise to terms that are cubic and quartic in the gluon fields.
+Our full QCD Lagrangian\footnote{It should be noted that the $\theta$-term would also have all necessary properties to be included, but since it is very small it can be ignored.} is
+\begin{align}
+    \lagr_{\text {QCD}}(\psi, \bar\psi, A)&=\bar\psi(i\slashed D-m)\psi-\frac{1}{4}\rbr{G_{\mu\nu}^a}^2\\
+    &=\bar\psi(i\slashed \partial +g\slashed A^at^a-m)\psi-\frac{1}{4}\rbr{G_{\mu\nu}^a}^2.
+\end{align}
+In Lattice QCD it is convenient use a slightly different notation. Instead of having to sum over the generators of the Lie Algebra we define
+\begin{equation}
+    G_{\mu\nu}:=\sum_a G_{\mu\nu}^at^a,\quad A_\mu:=\sum_a A_\mu^at^a.
+\end{equation}
+Further, using $\tr [\sum_aT^aT^a]=1/2$ we have 
+\begin{equation}
+    \rbr{G_{\mu\nu}^a}^2=2\tr [\rbr{G_{\mu\nu}^aT^a}^2]=2\tr[G_{\mu\nu}^2].
+\end{equation}
+Lastly it is also common practice on the lattice to rescale the gluon fields via
+\begin{equation}
+    A_\mu(x)\rightarrow\frac{1}{g}A_\mu(x).
+\end{equation}
+In our new notation the Lagrangian is given by
+\begin{align}
+    \lagr_{\text {QCD}}(\psi, \bar\psi, A)&=\bar\psi(i\slashed D-m)\psi-\frac{1}{2g^2}\tr\sqbr{G_{\mu\nu}^2}\\
+    &=\bar\psi(i\slashed \partial +\slashed A-m)\psi-\frac{1}{2g^2}\tr\sqbr{G_{\mu\nu}^2},\label{eq:qcdLagr}
+\end{align}
+which will be the form that we will use from now on\cite{peskin}.
+
+
+\todoin{Introduce the Gauge Action and its rewritten Form to show the similarity to QED}
+
+
+
+
+\section{The Path Integral and Partition function of QCD}\label{sec:pathIntPartFunc}
+\todoin{Talk about the second way of doing standard QM using this formalism instead of operators.}
+\todoin{Without going too much into details, say that it also works for QFT}
+\todoin{Wick Rotation to get the Euclidean version, which will be the important version for us. Talk about the advantage of going from an exponential that describes a phase to an exponential decay.}
+
+When we are introduced for the first time with quantum mechanics, it is customary to start with the operator formalism, where the central object is the Hamilton operator $\hat H$ which governs the time evolution of a quantum mechanical system. To calculate the probability that a state transitions from one state $\ket{\phi_a(\vec x)}$ at time 0 to $\ket{\phi_b(\vec x)}$ at time t we have to calculate
+\begin{equation}
+    \bra{\phi_a(\vec x)}\exp\left(-i\hat H t\right)\ket{\phi_b(\vec x)}.\label{eq:timeEvolv}
+\end{equation}
+To construct $\hat H$ for a quantum (field) theory, we need to introduce commutation relations (for our fields).\\
+However, it is also possible to quantize our theory without the use of operators at all by using the path integral formalism, which was introduced by Richard Feynman.
+The derivation of the path integral formalism starting from the operator formalism is technical and can be found, for example, in \cite{peskin}. The main idea is to split the transition from the initial state to the final state in (infinitesimally) small space-time steps so that the exponentiated Hamilton operator can be approximated by an easier to handle expression. This finally leads to the path integral\footnote{It is common practice to drop a constant that should appear in front of the path integral since it is going to be canceled anyways in further calculations.} 
+\begin{equation}
+     \bra{\phi_a(\vec x)}\exp\left(-i\hat H t\right)\ket{\phi_b(\vec x)}=\int_{\phi(\vec x,0)=\phi_a(\vec x)}^{\phi(\vec x,T)=\phi_b(\vec x)} \mathcal D\phi \exp\left(i\int_0 ^td^4x\, \lagr[\phi]\right),\label{eq:pathIntTime}
+\end{equation}
+where $\lagr$ denotes the corresponding Lagrangian (density) of the Hamilton operator, and the space coordinates are integrated over the whole $\mathbb R ^3$. The expression $\int \mathcal D \phi$ means that the integrand is evaluated for all possible field configurations (which satisfy the boundary conditions given by the left-hand side). Often, the integral measure is written as 
+\begin{equation}
+    \mathcal{D} \phi =\prod_i d\phi(x_i)
+\end{equation}
+to make it clear that at every space-time coordinate we integrate $\phi$ over the real numbers. \\
+In this thesis, we are not directly interested in the time evolution of some quantities but the expectation values in a thermal setting. The fundamental objected that we need to describe these is the density
+\begin{equation}
+    \hat\rho=\exp(-\beta_T\hat{H}),
+\end{equation}
+with $\beta_T=1/k_BT=1/T$, where We introduce the subscript $T$ to differentiate it from the lattice coupling parameter $\beta=6/g^2$ that is often used in lattice QCD. The expectation value of some operator $\hat A$ is now given by
+\begin{equation}
+    \langle\hat A\rangle=\frac{\tr\hat A\hat \rho}{\tr \hat\rho}=\frac{1}{Z}\tr \hat{A}\hat{\rho}
+\end{equation}
+with $Z$ being the partition function
+\begin{equation}
+    Z=\tr\hat\rho=\int d\phi_a\bra{\phi_a}\exp\rbr{-\beta_T\hat H}\ket{\phi_a}.
+\end{equation}
+Comparing this expression with \eqref{eq:timeEvolv} motivates the introduction of an imaginary time $\tau=\beta=it$. This is the Wick rotation which transforms our Minkowski space into the Euclidean space. When we now use equation \eqref{eq:pathIntTime}, Wick rotate it and then plug it in the partition function, we end up with
+\begin{equation}
+    Z=\int_{\text{periodic}}\exp-\rbr{\int_0^\beta d\tau\int d^3x\lagr_E},
+\end{equation}
+where $L_E$ denotes the Euclidean Lagrangian. Specifying this for the QCD Lagrangian we have
+\begin{equation}
+    Z=\int_{\text{antiperiodic}} \mathcal D\bar \psi\mathcal D\psi\int_{\text{periodic}}\mathcal DA\, \exp\left(-\int d^4x\,\bar\psi(\slashed D+ m)\psi+\frac{1}{4g^2}\rbr{F_{\mu\nu}^a}^2\right)
+\end{equation}
+with the sign of the field strength tensor product changing because of the Wick rotation. It is important to note that while we enforce that the boson fields have periodic boundary conditions, the fermion fields have antiperiodic boundary condition which follows from Fermi-Dirac statistics. It was mentioned before, that in this formalism we do not have to introduce commutation relations to quantize the theory. But although the quantum mechanical operators are now substituted by classical fields, it turns out, that the fermions still maintain their anticommuting behavior, which requires the introduction of Grassmann variables.\cite{kapusta}
+
+\subsection{Grassmann Numbers and the Fermion Determinant}
+In the path integral formalism, the quark fields are not operators, but classical fields. But since fermions obey the Fermi-Dirac statistic, they must anticommute. Therefore we need to define the Grassmann numbers as a set of numbers such that
+\begin{equation}
+    \theta \eta=-\eta\theta
+\end{equation}
+for all Grassmann numbers $\theta$ and $\eta$. As in the case of ordinary complex numbers that can always be written as the addition of two real number, with the second number being multiplied by imaginary unit $i$, we can define complex Grassmann numbers via
+\begin{equation}
+    \theta = \theta_1 +i\theta_2
+\end{equation} and thereby its complex conjugate as
+\begin{equation}
+    \theta^* = \theta_1 -i\theta_2.
+\end{equation}
+These two are independent and we will write $\bar\theta$ instead of $\theta^*$ with them being unitary equivalent. Choosing the right normalization conventions one can show that
+\begin{equation}
+    \rbr{\prod_{i=1}^n\int d_i\bar\theta d\theta_i}e^{-\bar\theta_iB_{ij}\theta_j}=\det B 
+\end{equation}
+with $B$ being an n-dimensional matrix. Substituting this finite dimensional operator by the infinite dimensional operator $\slashed D$ acting on the infinite dimensional vectors $\psi$ and $\bar\psi$ we get
+\begin{equation}
+    \int \mathcal D\bar \psi\mathcal D\psi\, \exp\left(-\int d^4x\,\bar\psi(i\slashed D+m)\psi\right) = \det [\slashed D+m],
+\end{equation}
+which is called the fermion determinant. Since the integration over the fermion fields treats the pure gluon part of the action as a factor, we may write the partition function as
+\begin{equation}
+    Z=\int \mathcal DA\, \det\left[D\right]\exp\left(-\int d^4x\,\frac{1}{4g^2}\rbr{F_{\mu\nu}^a}^2\right),
+\end{equation}
+with $D$ denoting the full Dirac operator including the mass term. While a more thorough introduction of the Grassmann numbers may be interesting, it is not necessary at this point.
+
+\section{Renormalization and the Running of the Coupling}
+In an introductory course to Quantum Field Theory, we usually hope to solve the theory perturbatively. So when we look at some processes such as the scattering of quarks or annihilation of quark-antiquark pairs we start with the tree-level Feynman diagrams. After calculating the amplitudes arising from these diagrams we include loop corrections, which include the interaction of virtual particles, which result from quantum fluctuations.\\
+Whenever we include more diagrams, we change the fit function for quantities such as the electron charge (or fine-structure constant) of QED or the strong coupling constant of QCD, which we need when we want to determine the quantity from experimental data. This process is called renormalization. It turns out that these coupling 'constants' are not constant but depend on some scale, such as the incoming momentum of a photon or gluon. While in QED the fine structure constant, which is usually given by value 1/137, does change depending on the momentum, its changing rate is often small and can be neglected. Its small values makes a perturbative expansion in this parameter usually successful.\\ In QCD however, the running of the gauge coupling $g^2$ to first loop order is determined by the beta function
+\begin{equation}
+    \beta(g)=\mu\frac{dg}{d\mu}=-\frac {g^3}{(4\pi)^2}\rbr{11-\frac{2}{3}N_f}
+\end{equation} 
+with $\mu$ being the (momentum) scale and $N_f$ denoting the number of fermion flavors, e.g. 6 in full QCD with all 6 flavors. This leads to 
+\begin{equation}
+    g^2(\mu)=\frac{g^2(\mu_0)}{1+\frac{g^2(\mu_0)}{(4\pi)^2}\rbr{11-\frac{2}{3}N_f}}\log(\mu^2/\mu_0^2)
+\end{equation}
+with $\mu_0$ being some reference scale/integration constant. If we look at $\mu \gg\mu_0$ the coupling becomes very small and we reach asymptotic freedom, where particles can be treated as quasi-free and perturbation theory succeeds. But if we are interested in small momentum or equivalently in low-energy phenomena, the coupling gets stronger and we are in the confinement phase. At the $\Lambda_{QCD}$ scale the expression diverges and it becomes clear that perturbation theory fails at this point (and already earlier). Because of this, we are forced to use other computation methods, such as Lattice QCD\cite{peskin}.
+
+
+
+
+
+
+
+
+
+
+
+\todoin{Still very unsure about this section}
+\todoin{Since Confinement and Asymptotic freedom are central elements of QCD I should mention them. Also I need them to explain some things later, such as the phase transition of (de)confinement}
+\todoin{But since these concepts are (at least according to my understanding) nothing but the running of the coupling, which is just a result of renormalization, i feel like the most elegant way would be, to say something about renormalization. And also since it is coupled to the bare parameters, there seems a necessity to do it that way. But I havent yet grasped it completely. This will most likely be done at some later point after almost completing the proposal.}
+

@@ -1,0 +1,87 @@
+%\documentclass{scrartcl}[a4paper, 12pt]
+\documentclass[
+	english,
+	ruledheaders=section,%Ebene bis zu der die Überschriften mit Linien abgetrennt werden, vgl. DEMO-TUDaPub
+	class=report,% Basisdokumentenklasse. Wählt die Korrespondierende KOMA-Script Klasse
+	thesis={type=Proposal},% Dokumententyp Thesis, für Dissertationen siehe die Demo-Datei DEMO-TUDaPhd
+	accentcolor=9c,% Auswahl der Akzentfarbe
+	custommargins=true,% Ränder werden mithilfe von typearea automatisch berechnet
+	marginpar=false,% Kopfzeile und Fußzeile erstrecken sich nicht über die Randnotizspalte
+	%BCOR=5mm,%Bindekorrektur, falls notwendig
+	parskip=half-,%Absatzkennzeichnung durch Abstand vgl. KOMA-Script
+	fontsize=11pt,%Basisschriftgröße laut Corporate Design ist mit 9pt häufig zu klein
+	%logofile=example-image, %Falls die Logo Dateien nicht vorliegen
+]{tudapub}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbold}
+\usepackage{slashed}
+
+\usepackage{float}
+
+\graphicspath{ {images/} }
+\usepackage{graphicx} % Required for inserting images
+%\usepackage{todonotes}
+\newcommand{\todoin}{\todo[inline]}
+\usepackage[disable]{todonotes}
+\newcommand{\redtodo}{\textcolor{red}{TODO}}
+
+\newcommand{\sqbr}[1]{\left[#1\right]}
+\newcommand{\rbr}[1]{\left(#1\right)}
+\newcommand{\cbr}[1]{\left\{#1\right\}}
+
+%rectangle
+\newcommand{\rectangle}{{\mathbin{\scalebox{2}[1]{$\square$}}}}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+
+\DeclareMathOperator{\tr}{tr}
+
+\newcommand{\lagr}{\mathcal L}
+
+\begin{document}
+
+\title{High-Precision Pressure Measurement in Full Lattice QCD for $N_f=2+1$}
+\author{Abdelhamid Ettahri}
+\reviewer{Guy D. Moore}
+%\date{December 2025}
+\submissiondate{February 24, 2026}
+
+\department{Fachbereich Physik}
+\institute{Institut für Kernphysik: Theoriezentrum}
+\group{AG Moore}
+
+\maketitle
+
+\chapter*{Abstract}\input{chapters/abstract} \tableofcontents
+
+
+\listoftodos    \todo[inline]{Rewrite introduction} \todo[author=Al]{Add figure}    \todo[color=yellow!30]{Clarify wording} \newpage
+
+
+\chapter{Motivation}                            \input{chapters/chapter1_motivation}\newpage
+
+\chapter{Quantum Chromodynamics}                \input{chapters/chapter2_qcd}\newpage
+
+\chapter{The Lattice}                           \input{chapters/chapter3_lattice}\newpage
+
+\chapter{Statistical Physics and Thermodynamics}\input{chapters/chapter4_statPhysAndThmdyn}\newpage
+
+\chapter{The Measuring Process}                 \input{chapters/chapter5_measuring}\newpage
+
+\chapter{Set Up and Outlook}                \input{chapters/chapter6_conclusion}\newpage
+
+
+
+
+\bibliography{references}   \bibliographystyle{ieeetr} \newpage
+
+%\appendix \chapter{Appendix}\input{chapters/appendix}\newpage
+
+\input{chapters/thesisStatement}
+
+\end{document}

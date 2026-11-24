@@ -1,0 +1,75 @@
+\begin{thebibliography}{10}
+
+\bibitem{bellac}
+M.~Le~Bellac, {\em Thermal Field Theory}.
+\newblock Cambridge Monographs on Mathematical Physics, Cambridge University
+  Press, 1996.
+
+\bibitem{phasediagram}
+K.~Fukushima and T.~Hatsuda, ``The phase diagram of dense qcd,'' {\em Reports
+  on Progress in Physics}, vol.~74, p.~014001, Dec. 2010.
+
+\bibitem{monnai}
+A.~Monnai, {\em {Relativistic Dissipative Hydrodynamic Description of the
+  Quark-Gluon Plasma Relativistic Dissipative Hydrodynamic Description of the
+  Quark-Gluon Plasma}}.
+\newblock PhD thesis, Tokyo U., New-York, 2014.
+
+\bibitem{pavan}
+P.~Pavan, O.~Kaczmarek, G.~D.~Moore, and C.~Schmidt, ``Shear viscosity from
+  quenched to full lattice qcd,'' in {\em Proceedings of The 41st International
+  Symposium on Lattice Field Theory — PoS(LATTICE2024)}, LATTICE2024, p.~199,
+  Sissa Medialab, Feb. 2025.
+
+\bibitem{thomson}
+M.~Thomson, {\em Modern Particle Physics}.
+\newblock Cambridge University Press, 2021.
+
+\bibitem{peskin}
+M.~E. Peskin and D.~V. Schroeder, {\em An introduction to quantum field
+  theory}.
+\newblock CRC Press, 2019.
+
+\bibitem{gattringer}
+C.~Gattringer and C.~B. Lang, {\em {Quantum chromodynamics on the lattice}}.
+\newblock Berlin: Springer, 2010.
+
+\bibitem{kapusta}
+J.~I. Kapusta and C.~Gale, {\em {Finite-Temperature Field Theory : Principles
+  and Applications, 2nd edition}}.
+\newblock Cambridge University Press, 2007.
+
+\bibitem{luscherWeiszAction}
+M.~L{\"u}scher and P.~Weisz, ``On-shell improved lattice gauge theories,'' {\em
+  Communications in Mathematical Physics}, vol.~97, pp.~59--77, 1985.
+
+\bibitem{hisq}
+E.~Follana, Q.~Mason, C.~Davies, K.~Hornbostel, G.~P. Lepage, J.~Shigemitsu,
+  H.~Trottier, and K.~Wong, ``Highly improved staggered quarks on the lattice
+  with applications to charm physics,'' {\em Physical Review D}, vol.~75, Mar.
+  2007.
+
+\bibitem{bielefeldPHD}
+D.~Bollweg, {\em Higher order cumulants of net conserved charge distributions
+  in lattice QCD}.
+\newblock PhD thesis, Universit{\"a}t Bielefeld, Bielefeld, Germany, 2021.
+\newblock PhD thesis.
+
+\bibitem{integralMethod}
+S.~Borsányi, G.~Endrődi, Z.~Fodor, A.~Jakovác, S.~D. Katz, S.~Krieg,
+  C.~Ratti, and K.~K. Szabó, ``The qcd equation of state with dynamical
+  quarks,'' {\em Journal of High Energy Physics}, vol.~2010, Nov. 2010.
+
+\bibitem{firstIntegralMethod}
+J.~Engels, J.~Fingberg, F.~Karsch, D.~Miller, and M.~Weber, ``Non-perturbative
+  thermodynamics of su (n) gauge theories,'' {\em Physics Letters B}, vol.~252,
+  no.~4, pp.~625--630, 1990.
+
+\bibitem{eos2_1}
+A.~Bazavov, T.~Bhattacharya, C.~DeTar, H.-T. Ding, S.~Gottlieb, R.~Gupta,
+  P.~Hegde, U.~Heller, F.~Karsch, E.~Laermann, L.~Levkova, S.~Mukherjee,
+  P.~Petreczky, C.~Schmidt, C.~Schroeder, R.~Soltz, W.~Soeldner, R.~Sugar,
+  M.~Wagner, and P.~Vranas, ``Equation of state in (2+1)-flavor qcd,'' {\em
+  Physical Review D}, vol.~90, Nov. 2014.
+
+\end{thebibliography}

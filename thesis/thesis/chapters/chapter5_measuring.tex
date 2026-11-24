@@ -1,0 +1,137 @@
+When we want to calculate the expectation values of some quantity $O$ in the pure gauge theory we need
+\begin{equation}
+    \langle O\rangle=\frac{1}{Z} \int\mathcal D[U]\exp\rbr{-S_G[U]}O[U],\quad Z=\int \mathcal D[U]\exp\rbr{-S_G[U]}.
+\end{equation}
+Instead of evaluating this infinite dimensional integral analytically we may approximate it by a Monte-Carlo integration. We choose $N$ configurations $U_n$ according to the probability density 
+\begin{equation}
+    dF[U]=\frac{\exp(-S_G[U])\mathcal D[U]}{\int\mathcal D[U']\exp(-S_G[U'])}
+\end{equation}
+and evaluate
+\begin{equation}
+    \frac{1}{N}\sum_{n=1}^NO[U_n].
+\end{equation}
+The statistical error is proportional to $1/\sqrt{N}$ and in the limit $N\to\infty$ we have
+\begin{equation}
+    \langle O\rangle=\underset{N\to\infty}{\lim}\frac{1}{N}\sum_{n=1}^NO[U_n]
+\end{equation}
+\cite{gattringer}.
+\section{Markov chains and the Metropolis algorithm}
+
+To approximate the expectation value we need to generate many configurations. We generate these via a Makrov process. This means that we generate configurations subsequently, with each following configuration depending only on the previous one, ignoring the previous history. This is schematically shown in figure \ref{fig:markov}. The probability of choosing a new configuration is called transition probability $T(U|U')$. We start with an arbitrary configuration $U_0$ which means that our configuration distribution is simply $P^{(0)}(U)=\delta(U-U_0)$. Each time we generate a new configuration we let $T$ act on the distribution resulting in a new configuration. This is the thermalization process in which the configuration distribution differs from the actual physical distribution. Using these configurations to compute the expectation value would lead to wrong values. Instead we will keep generating new configurations until thermalization is over and the configuration distribution is in equilibrium. This is the case if in the step $n\to n+1$ the probability of $U'$ being the new configuration is the same as the probability of $U'$ being the old configuration. This condition is the balance equation
+\begin{equation}
+    \sum_UT(U'|U)P(U)\overset{!}{=}\sum_UT(U|U')P(U').
+\end{equation}
+Using the normalization of the transition probability
+\begin{equation}
+    \sum_UT(U|U')=1
+\end{equation}
+the balance equation becomes
+\begin{equation}
+    \sum_UT(U'|U)P(U)=P(U')
+\end{equation}
+which means that our equilibrium distribution is a fixed point of $T$. It is necessary to ensure that $T(U|U')$ is strictly positive to make every configuration reachable from every starting point and make the Markov chain aperiodic. This strong ergodicity guarantees that our configuration distribution converges to the equilibrium distribution, as long as the transition probability satisfies the balance equation. One way of enforcing this is by expecting the transition probability $T$ to satisfy the condition for each term. This sufficient condition is called detailed balance 
+\begin{equation}
+    T(U'|U)P(U)=T(U|U')P(U')
+\end{equation}
+and this will be used here.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/markov.png}
+    \caption{Example of a Markov chain. In every step a new configuration is chosen. ll possible configurations are inside the boundary\cite{gattringer}.}
+    \label{fig:markov}
+\end{figure}
+The generation of configurations is now done following the Metropolis algorithm consisting of the repetition of two steps
+\begin{enumerate}
+    \item Choose a candidate configuration $U'$ according to an a priori selection probability $T_0(U'|U)$
+    \item Accept $U'$ with a probability $T_A(U'|U)=\min\rbr{1,\frac{T_0(U|U')\exp(-S[U'])}{T_0(U'|U)\exp(-S[U])}}$.
+\end{enumerate}
+The combined probability $T=T_0T_A$ satisfies the detailed balance condition using $P(U)\propto\exp(-S[U])$. When we choose a symmetric selection probability $T(U|U')=T(U'|U)$, the accept probability reduces to
+\begin{equation}
+    T_A=\min(1,\exp(-\Delta S)),\quad\Delta S=S[U']-S[U],\label{eq:acceptProb}
+\end{equation}
+meaning it depends only on the difference in action. \\
+The generation of a configuration candidate can be expensive and often it is rejected. But we can use that the acceptance probability depends only on the change in action to improve the computation time. In the pure gauge case for example we may take the same configuration and change only one link variable $U_\mu(n)'$. The difference in action depends only on the change in 6 plaquettes which include this link variable 
+\begin{equation}
+    S_{loc}=\frac{\beta}{3}\sum_{i=1}^6\text{Re }\tr\sqbr{\mathbb1-U_\mu(n)'P_i}=\frac{\beta}{3}\text{Re }\tr\sqbr{6\mathbb1-U_\mu(n)'A}.
+\end{equation}
+The $P_i$ denote the 6 plaquettes excluding the new link variable, which are called staples, and $A$ is given 
+by their sum
+\begin{align}
+    A=\sum_{i=1}^6P_i=\sum_{\nu\neq\mu}\big(&U_\nu(n+\hat\mu)U_{-\mu}(n+\hat\mu+\hat\nu)U_{-\nu}(n+\hat\nu)\\
+    +&U_{-\nu}(n+\hat\mu)U_{-\mu}(n+\hat\mu-\hat\nu)U_{\nu}(n-\hat\nu)\big).
+\end{align}
+The staples are the same in the proposed configuration and the action difference is
+\begin{equation}
+    \Delta S=-\frac{\beta}{3}\text{Re }\tr\sqbr{\rbr{U_\mu(n)'-U_\mu(n)}A}.
+\end{equation}
+If we now have a configuration candidate, in this one link variable, we may now accept or reject it with the probability \eqref{eq:acceptProb}\cite{gattringer}. \\
+%Now we look at how we generate the candidates, but for this we need to understand how to represent link variables. While our link variables are elements of $SU(3)$, we will not use algorithms that generate these matrices, but matrices in $SU(2)$ and use them to build $SU(3)$. 
+
+
+\todoin{Markov chains and general metropolis}
+\todoin{generating random numbers}
+
+\section{Simulation in Pure Glue: Heat Bath and Overrelaxation}
+We will use two algorithms to generate link variable configurations: the heat bath algorithm and overrelaxation. In principle, the first algorithm is enough, but like in the previous section we change the link variables only one by one. Thus, it takes a long time to get uncorrelated configurations which are needed for the computation of expectation values. Overrelaxiation leads to big changes, however, it keeps the action unchanged, which means that this algorithm alone does not satisfy ergodicity which is needed to explore the full configuration space. It is therefore common practice to use a combination of both algorithms to use both advantages.\\
+While these algorithms are used to generate our link variables which are elements of $SU(3)$, they actually produce multiple $SU(2)$ matrices which are used to generate the $SU(3)$ matrix. The reason for this is that the algorithms use the fact that the sum of $SU(2)$ matrices are proportional to another $SU(2)$ matrix. This property is not true for the higher dimensional case.\\
+While the Metropolis algorithm starts by the generation of a candidate configuration according to some selection probability and then accepts it with a acceptance probability, the heat bath algorithm directly generates link variables that are distributed correctly according to
+\begin{equation}
+    dP(U)=dU\exp\rbr{\frac{\beta}{N}\text{Re} \tr\sqbr{UA}}.
+\end{equation}
+Using the invariance of the measure $dU$ under transformation and the aforementioned property that we may write the sum of $SU(2)$ matrices as
+\begin{equation}
+    A=:\sqrt{\det\sqbr{A}}V=:aV
+\end{equation}
+with $V\in SU(2)$, we can rewrite the distribution
+\begin{equation}
+    dP(X)=dX\exp\rbr{\frac{a\beta}{2}\text{Re }\tr\sqbr{X}}
+\end{equation}
+and then calculate
+\begin{equation}
+    U=XV^\dagger=XA^\dagger\frac{1}{a}.
+\end{equation}
+Since this is for the computation for $SU(2)$ matrices we have used $N=2$.\\
+We will not show how to generate $X$ according to this distribution since it requires talking about the Haar measure $dU$ and other technical details regarding the extraction of random numbers from different distributions. Instead we refer to \cite{gattringer}. The literature also explains how we can construct the $SU(3)$ link variable by using the algorithm thrice.\\
+Overrelaxation also skips the accept/reject step by choosing configurations that do not change the action, which implies that the acceptance date is 100 percent. In $SU(2)$ this can be done by changing the link variables according to
+\begin{equation}
+    U'=V^\dagger U^\dagger V^\dagger
+\end{equation}
+with $V$ being again the normalization of the staples $A$. Using that $SU(2)$ matrices have real traces and their unitarity we have
+\begin{equation}
+    \tr\sqbr{U'\cdot A}=\tr\sqbr{V^\dagger U^\dagger V^\dagger\cdot Va}=\tr\sqbr{A^\dagger U^\dagger}=\tr\sqbr{UA}.
+\end{equation}
+Since the trace does not change, the action does not change as well and this new configuration is accepted.\\
+Using both algorithms we can then change the configuration significantly using overrealaxation, while needing heat bath to explore regions of the configuration space that have other actions and are therefore not reachable with overrelaxation alone\cite{gattringer}. 
+\section{Simulation in Full QCD: Hybrid Monte Carlo}
+\subsection{Fermion determinant and pseudofermions}
+Up until now we have only considered the generation of the gluonic part of the configurations. When we include (dynamic) fermions we have to include the fermion determinant in our calculations. The idea of treating the determinant as part of the observable and ignoring it during the process of generating the configurations fails because the determinant fluctuates over several orders of magnitude. Instead it has to be used as a weight factor of the distribution. This can give rise to problems, since the fermion determinant is generally not positive, which leads to the sign-problem. Since we do not include the chemical potential in our calculations and our Dirac operator has sufficient properties such as chirality and $\gamma_5$-hermiticity, we are ensured that the determinant is positive.\\
+The fermion determinant was the result of a Grassmann integration of a Gaussian. Assuming two mass-degenerate quark flavors we have
+\begin{align}
+    &\int\mathcal D\psi^{(u)}\mathcal D\bar\psi^{(u)}\mathcal D\psi^{(d)}\mathcal D\bar\psi^{(d)} \exp(-\bar\psi^{(u)}D\psi^{(u)}-\bar\psi^{(d)}D\psi^{(d)}\\ =&\det\sqbr{D}\det\sqbr{D}=\det\sqbr{D}\det\sqbr{D^\dagger}=\det\sqbr{DD^\dagger}.
+\end{align}
+But we can also write 
+\begin{equation}
+    \det\sqbr{DD^\dagger}=\pi^{-N}\int\mathcal D\phi_I\mathcal{D}\phi_R\exp\rbr{-\phi^\dagger\rbr{DD^\dagger}^{-1}\phi}
+\end{equation}
+for complex field with $N$ components 
+\begin{equation}
+    \phi=\phi_R+i\phi_I. 
+\end{equation}
+These are normal complex fields, meaning they behave like bosons. Since we can use them to describe fermions we call them pseudofermions. The action is now given by
+\begin{equation}
+    S[U,\phi]=S_G[U]+\phi^\dagger(DD^\dagger)^{-1}\phi.
+\end{equation}
+The reason for using the determinant for mass-degenerated quarks is that the following algorithm needs the positivity of $DD^\dagger$ but $D$ is not positive.  
+\subsection{Hybrid Monte Carlo}
+The heat bath algorithm, which can be used in the pure glue case, used the fact, that when we change a single link variable this only effects its neighborhood. This local property is not true once we include the fermion determinant. Since this implies that the computation is expensive, we could simply change a lot of link variables at once. But this has the downside of leading to low acceptance rates. Instead we will use the idea of overrelaxation of enforcing a high acceptance rate by (almost) not changing the action via the new configuration. This is done by imitating the dynamics of classical particles with coordinates and conjugate momenta who evolve in a way that do not change the Hamiltonian and in our case the action. The coordinates $Q$ are related to the link variables $U$ while the momenta $P$ are introduced by multiplying by a one. The dynamics of the Hamiltonian 
+\begin{equation}
+    H[Q,P]=\frac{1}{2}P^2+S[Q]
+\end{equation}
+are governed by the equations
+\begin{equation}
+    \dot P =-\frac{\partial H}{\partial Q},\qquad \dot Q=P,
+\end{equation}
+which can be solved numerically, with the initial values of $P$ being drawn from a Gaussian distribution. While we can extract from these $Q$ the new configuration, we remind ourselves that we need to ensure the detailed balance equation if we want the Markov process to thermalize. It can be shown that solving the differential equations via the leapfrog algorithm satisfies the condition.\\
+Leaving aside the technical details of the implementation, the hybrid Monte Carlo algorithm starts with drawing the pseudofermion fields from a Gaussian distribution. Then the conjugate momenta are also drawn from a Gaussian distribution and used to solve the Hamilton equations to compute new link variable candidates. Since we solve the differential equations numerically we introduce errors which lead to a change in the action. Thus, we only accept the configuration according to the acceptance probability.\\
+The above sketch follows \cite{gattringer} but ignores two points that are important for this thesis. Firstly, the algorithm assumes an even number of mass-degenerate quark flavors, however, while we assume that the up and down quark have the same mass, we also take into account the strange quark, which has a much higher mass. So we have an odd number of quarks and they are not mass-degenerate. Secondly, we do not use quark spinors but staggered fermions. This requires that we have to take the fourth root of the strange determinant and the second root of the light quark determinant. Therefore, we will not use the standard HMC algorithm but the rational hybrid Monte Carlo algorithm, where the root of the determinant is approximated by a rational function\cite{bielefeldPHD}.
+

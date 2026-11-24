@@ -1,0 +1,95 @@
+\begin{thebibliography}{10}
+
+\bibitem{eos2_1}
+A.~Bazavov, Tanmoy Bhattacharya, C.~DeTar, H.-T. Ding, Steven Gottlieb, Rajan
+  Gupta, P.~Hegde, U. M. Heller, F.~Karsch, E.~Laermann, L.~Levkova, Swagato
+  Mukherjee, P.~Petreczky, C.~Schmidt, C.~Schroeder, R. A. Soltz,
+  W.~Soeldner, R.~Sugar, M.~Wagner, and P.~Vranas.
+\newblock Equation of state in (2+1)-flavor qcd.
+\newblock {\em Physical Review D}, 90(9), November 2014.
+
+\bibitem{critTemp}
+Tanmoy Bhattacharya, Michael~I. Buchoff, Norman~H. Christ, H.-T. Ding, Rajan
+  Gupta, Chulwoo Jung, F.~Karsch, Zhongjie Lin, R. D. Mawhinney, Greg
+  McGlynn, Swagato Mukherjee, David Murphy, P.~Petreczky, Dwight Renfrew, Chris
+  Schroeder, R. A. Soltz, P. M. Vranas, and Hantao Yin.
+\newblock Qcd phase transition with chiral quarks and physical quark masses.
+\newblock {\em Physical Review Letters}, 113(8), August 2014.
+
+\bibitem{bielefeldPHD}
+Dennis Bollweg.
+\newblock {\em Higher order cumulants of net conserved charge distributions in
+  lattice QCD}.
+\newblock PhD thesis, Universit{\"a}t Bielefeld, Bielefeld, Germany, 2021.
+\newblock PhD thesis.
+
+\bibitem{integralMethod}
+Szabolcs Borsányi, Gergely Endrődi, Zoltán Fodor, Antal Jakovác, Sándor~D.
+  Katz, Stefan Krieg, Claudia Ratti, and Kálmán~K. Szabó.
+\newblock The qcd equation of state with dynamical quarks.
+\newblock {\em Journal of High Energy Physics}, 2010(11), November 2010.
+
+\bibitem{firstIntegralMethod}
+J.~Engels, J.~Fingberg, F.~Karsch, D.~Miller, and M.~Weber.
+\newblock Non-perturbative thermodynamics of su (n) gauge theories.
+\newblock {\em Physics Letters B}, 252(4):625--630, 1990.
+
+\bibitem{hisq}
+E.~Follana, Q.~Mason, C.~Davies, K.~Hornbostel, G.~P. Lepage, J.~Shigemitsu,
+  H.~Trottier, and K.~Wong.
+\newblock Highly improved staggered quarks on the lattice with applications to
+  charm physics.
+\newblock {\em Physical Review D}, 75(5), March 2007.
+
+\bibitem{phasediagram}
+Kenji Fukushima and Tetsuo Hatsuda.
+\newblock The phase diagram of dense qcd.
+\newblock {\em Reports on Progress in Physics}, 74(1):014001, December 2010.
+
+\bibitem{gattringer}
+Christof Gattringer and Christian~B. Lang.
+\newblock {\em {Quantum chromodynamics on the lattice}}.
+\newblock Springer, Berlin, 2010.
+
+\bibitem{kapusta}
+Joseph~I. Kapusta and Charles Gale.
+\newblock {\em {Finite-Temperature Field Theory : Principles and Applications,
+  2nd edition}}.
+\newblock Cambridge University Press, 2007.
+
+\bibitem{bellac}
+Michel Le~Bellac.
+\newblock {\em Thermal Field Theory}.
+\newblock Cambridge Monographs on Mathematical Physics. Cambridge University
+  Press, 1996.
+
+\bibitem{luscherWeiszAction}
+M.~L{\"u}scher and P.~Weisz.
+\newblock On-shell improved lattice gauge theories.
+\newblock {\em Communications in Mathematical Physics}, 97:59--77, 1985.
+
+\bibitem{monnai}
+Akihiko Monnai.
+\newblock {\em {Relativistic Dissipative Hydrodynamic Description of the
+  Quark-Gluon Plasma Relativistic Dissipative Hydrodynamic Description of the
+  Quark-Gluon Plasma}}.
+\newblock PhD thesis, Tokyo U., New-York, 2014.
+
+\bibitem{pavan}
+Pavan Pavan, Olaf Kaczmarek, Guy D.~Moore, and Christian Schmidt.
+\newblock Shear viscosity from quenched to full lattice qcd.
+\newblock In {\em Proceedings of The 41st International Symposium on Lattice
+  Field Theory — PoS(LATTICE2024)}, LATTICE2024, page 199. Sissa Medialab,
+  February 2025.
+
+\bibitem{peskin}
+Michael~Edward Peskin and Daniel~V. Schroeder.
+\newblock {\em An introduction to quantum field theory}.
+\newblock CRC Press, 2019.
+
+\bibitem{thomson}
+Mark Thomson.
+\newblock {\em Modern Particle Physics}.
+\newblock Cambridge University Press, 2021.
+
+\end{thebibliography}

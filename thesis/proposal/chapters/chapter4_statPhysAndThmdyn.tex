@@ -1,0 +1,77 @@
+The partition function was already introduced in section \ref{sec:pathIntPartFunc} as the trace over the density matrix
+\begin{equation}
+    Z=\tr\hat\rho=\tr\exp(-\beta_T\hat{H}),
+\end{equation}
+and we have seen after the Wick rotation we can write the function via a path integral. An important detail is that $\beta_T$ sets the upper bound of the temporal integration, which means that we introduce temperature into the system by limiting the integration range. If we would integrate up to infinity the temperature $T=1/\beta_T$ goes to zero corresponding to the vacuum. Since we have to send the volume to infinity to get physical results we cannot have the same number of lattice points in space and temporal direction. We write
+\begin{equation}
+    T=\frac{1}{N_Ta},\quad V=(N_Sa)^3,\quad \frac{V}{T}=a^4N_TN_S^3
+\end{equation}
+with the $N_T$ the number of lattice sites in temporal direction and $N_S$ the number of points in each space direction and $a$ the usual lattice spacing.\\
+In the following discussion we will use the simplified partition function
+\begin{equation}
+    Z(\beta,m)=\int \mathcal DU \det[\slashed D+m]\exp\rbr{-\beta S_G[U]}\label{eq:simpleZ}
+\end{equation}
+with $\beta=6/g^2$ the lattice gauge coupling.
+\section{The Partition Function and Bulk Quantities}
+
+This object entails all statistical information of the system. It can be used to calculate bulk quantities such as the pressure, the entropy and the energy\cite{kapusta}
+\begin{equation}
+    P=\frac{\partial T\ln Z}{\partial V},\quad S=\frac{\partial(T\ln Z)}{\partial T},\quad E=-PV+TS.   
+\end{equation}
+In the thermodynamical limit the expression for the pressure simplifies to 
+\begin{equation}
+    p=\frac{T}{V}\ln Z.
+\end{equation}
+A useful quantity is the trace anomaly
+\begin{equation}
+    I=3P-\epsilon=-T^5\frac{\partial}{\partial T}\frac{P(T)}{T^4},
+\end{equation}
+because it can be computed from the pressure alone and can be used to calculate the energy density $\epsilon$ afterwards. Using these quantities we can also compute the entropy density $s$ and the speed of sound $c_s$
+\begin{equation}
+    s=\frac{P+\epsilon}{T},\quad c_s^2=\frac{dP}{d\epsilon}.
+\end{equation}
+This means that if we could calculate the partition and take its derivative we can extract the pressure and then all other bulk quantities. The problem is that in lattice QCD we cannot calculate $Z$ directly but only expectation values. However, derivatives of $\ln Z$ are nothing but expectation values. Thus, by integrating over the derivatives of $\ln Z$ we can reconstruct the partition function and thus the pressure\cite{integralMethod}.
+
+
+\section{Integral Method}
+The Integral Method\cite{firstIntegralMethod} was proposed as a non-perturbative way to analyze thermodynamic quantities such as pressure without having to rely on perturbative calculations of the gauge coupling. \\
+Since measurements on the lattice must be dimensionless, we introduce the dimensionless pressure
+\begin{equation}
+    P^{\text{lat}}=Pa^4=\frac{1}{N_TN_S^3}\ln Z.
+\end{equation}
+We introduce a parameter $\lambda$ for $\beta(\lambda)$ and $m(\lambda)$ so that the pressure and partition function depend only on $\lambda$. Invoking the fundamental theorem of calculus and using the chain rule we have
+\begin{align}
+    P^{\text{lat}}(\beta, m)-P^{\text{lat}}(\beta_0,m_0)&=\frac1{N_TN_S^3}\int_{\lambda_0}^{\lambda}d\lambda'\frac{\partial \ln Z}{\partial \lambda'}\\
+    &=\frac{1}{N_TN_S^3}\int_{(\beta_0,m_0)}^{(\beta,m)}\rbr{d\beta'\frac{\partial\ln Z}{\partial \beta'}+dm'\frac{\partial \ln Z}{\partial m'}}.
+\end{align}
+The derivative of the logarithm of equation \eqref{eq:simpleZ} leads to
+\begin{align}
+    \frac{\partial \ln Z}{\partial \beta}&=\frac{1}{Z}\int \mathcal DU \det[\slashed D+m]\exp\rbr{-\beta S_G[U]} (-S_G[U])\\
+    &=\langle-S_G\rangle.
+\end{align}
+For the second term we need to use Jacobi's formula
+\begin{equation}
+    \frac{d\det A(\lambda)}{d\lambda}=\det A(\lambda)\cdot\tr\rbr{A^{-1}\frac{dA}{d\lambda}}
+\end{equation}
+to get
+\begin{align}
+     \frac{\partial \ln Z}{\partial m}&=\frac{1}{Z}\int \mathcal DU \det[\slashed D+m]\exp\rbr{-\beta S_G[U]} \tr\frac{1}{\slashed D+m}\\
+     &=\left\langle\tr\frac{1}{\slashed D+m}\right\rangle.
+\end{align}
+When would calculate the derivative with respect to the mass of the expression in which the Grassmann integration was not yet done, only the mass term of the fermionic action depends on the mass and we get alternatively
+\begin{equation}
+     \frac{\partial \ln Z}{\partial m}=\langle\bar\psi\psi\rangle
+\end{equation}
+which is called the chiral condensate. Putting all together we have
+\begin{equation}
+    P^{\text{lat}}(\beta, m)-P^{\text{lat}}(\beta_0,m_0)=\frac{1}{N_TN_S^3}\int_{(\beta_0,m_0)}^{(\beta,m)}\rbr{d\beta'\langle-S_G\rangle+dm'\langle\bar\psi\psi\rangle}. 
+\end{equation}
+We finish this section with a few notes. Firstly, one may take the factor of the integral inside the expectation value to have expectation values of densities. Secondly, it is important that the same calculation is done again with a much lower temperature to cancel additive divergences that would appear otherwise. We will do this by repeating the calculation for half the temperature. Thirdly, while this method allows the calculation of the pressure for given gauge coupling and mass, we still need to have the pressure for some other parameter combination. We will solve this problem by choosing our starting point at $m=\infty$ and $\beta=\infty$ where we know the pressure. Lastly, the parameter dependence of $\beta$ and $m$ are often chosen in a way that the parameter path goes along a Line of Constant Physics. This means along these path all calculations give rise to valid physical results. But this path has the problem that the calculations are more expensive and give rise to bigger errors than the path that we choose. But since only the end point matters, our path, which uses unphysical intermediate steps such as quarks with infinite masses, is a valid path. \cite{integralMethod}
+
+\todoin{Start with saying that we cannot calculate Z, only expectation values (and derivatives)}
+\todoin{Using Derivatives requires to integrate from a known point to the point of interest.}
+\todoin{Talk about possible paths that we might take}
+
+%\subsection{Non-Thermal}
+\todoin{Instead of calculating derivatives via expectation values we can calculate expectation values themselves along a path without thermalization}
+\todoin{We talked about two ways, and i am unsure if I should include Jarzynskis way since it seemed to be the worse one}
